@@ -1,56 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="JavaScript image viewer.">
-  <meta name="keywords" content="HTML, CSS, JS, JavaScript, image viewing, viewer, viewerjs, viewer.js, front-end, web development">
-  <meta name="author" content="Chen Fengyuan">
-  <title>Viewer.js</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/viewer.css">
-  <link rel="stylesheet" href="css/main.css">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>支持手机移动端图片相册大图查看浏览js特效代码</title>
+	<meta name="keywords" content="手机移动端,图片相册,大图查看浏览,js特效,代码" />
+	<meta name="description" content="支持手机移动端图片相册大图查看浏览js特效代码，点击图片浏览大图，可以关闭、上/下一张。" /> 
+	<meta name="author" content="js代码" />
+	<meta name="copyright" content="js代码" />
+	<link rel="stylesheet" href="css/baguetteBox.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" src="/static/js/protect.js"></script>
 </head>
 <body>
-  <!--[if lt IE 9]>
-  <div class="alert alert-warning alert-dismissible fade show m-0 rounded-0" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-    You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
-  </div>
-  <![endif]-->
+	<div class="jq22-container">
+    <div class="baguetteBoxOne gallery">
+        <a href="img/big/2-1.png" data-caption="Golden Gate Bridge">
+            <img src="img/thumbs/2-1.png" alt="Golden Gate Bridge">
+        </a>
+        <a href="img/big/2-2.png" title="Midnight City">
+            <img src="img/thumbs/2-2.png" alt="Midnight City">
+        </a>
+        <a href="img/big/2-3.png">
+            <img src="img/thumbs/2-3.png" alt="">
+        </a>
+        <a href="img/big/2-4.png">
+            <img src="img/thumbs/2-4.png" alt="">
+        </a>
+       	
+    </div>
+</div>
 
-  <!-- Header -->
-  <header class="navbar navbar-light navbar-expand-md">
+	<script src="js/baguetteBox.js" async></script>
+	<script src="js/highlight.min.js" async></script>
+	<!--[if lt IE 9]>
+	<script>
+	var oldIE = true;
+	</script>
+	<![endif]-->
+	<script>
+	window.onload = function() {
+	    baguetteBox.run('.baguetteBoxOne');
+	    baguetteBox.run('.baguetteBoxTwo');
+	    baguetteBox.run('.baguetteBoxThree', {
+	        animation: 'fadeIn',
+	        noScrollbars: true
+	    });
+	    baguetteBox.run('.baguetteBoxFour', {
+	        buttons: false
+	    });
+	    baguetteBox.run('.baguetteBoxFive', {
+	        captions: function(element) {
+	            return element.getElementsByTagName('img')[0].alt;
+	        }
+	    });
 
-  </header>
-
-
-  <!-- Content -->
-  <div class="container">
-    <h1>Overview</h1>
-    <hr>
-        <div class="docs-galley">
-          <ul class="docs-pictures clearfix">
-            <li><img data-original="images/tibet-1.jpg" src="images/thumbnails/tibet-1.jpg" alt="Cuo Na Lake"></li>
-            <li><img data-original="images/tibet-2.jpg" src="images/thumbnails/tibet-2.jpg" alt="Tibetan Plateau"></li>
-            <li><img data-original="images/tibet-3.jpg" src="images/thumbnails/tibet-3.jpg" alt="Jokhang Temple"></li>
-            <li><img data-original="images/tibet-4.jpg" src="images/thumbnails/tibet-4.jpg" alt="Potala Palace 1"></li>
-            <li><img data-original="images/tibet-5.jpg" src="images/thumbnails/tibet-5.jpg" alt="Potala Palace 2"></li>
-            <li><img data-original="images/tibet-6.jpg" src="images/thumbnails/tibet-6.jpg" alt="Potala Palace 3"></li>
-            <li><img data-original="images/tibet-7.jpg" src="images/thumbnails/tibet-7.jpg" alt="Lhasa River"></li>
-            <li><img data-original="images/tibet-8.jpg" src="images/thumbnails/tibet-8.jpg" alt="Namtso 1"></li>
-            <li><img data-original="images/tibet-9.jpg" src="images/thumbnails/tibet-9.jpg" alt="Namtso 2"></li>
-          </ul>
-      </div>
-  </div>
-  <!-- Scripts -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.bundle.min.js"></script>
-  <script src="https://fengyuanchen.github.io/js/common.js"></script>
-  <script src="js/viewer.js"></script>
-  <script src="js/main.js"></script>
+	    if (typeof oldIE === 'undefined' && Object.keys) {
+	        hljs.initHighlighting();
+	    }
+	};
+	</script>
 </body>
 </html>
